@@ -1,6 +1,6 @@
 ---
 layout: default
-title "Lecture 2: Finite Automata, Lexical Analysis"
+title: "Lecture 2: Finite Automata, Lexical Analysis"
 ---
 
 Finite automata
