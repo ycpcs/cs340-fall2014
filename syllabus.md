@@ -6,11 +6,20 @@ title: "Syllabus"
 CS 340 - Programming Language Design
 ====================================
 
-**Fall 2013**
+**Fall 2014**
 
-Instructor | Email | Office hours
----------- | ----- | ------------
-[David Hovemeyer](http://faculty.ycp.edu/~dhovemey) | [dhovemey@ycp.edu](mailto:dhovemey@ycp.edu) | TBA
+Staff:
+
+> Instructor | Email | Office hours
+> ---------- | ----- | ------------
+> [David Hovemeyer](http://faculty.ycp.edu/~dhovemey) | [dhovemey@ycp.edu](mailto:dhovemey@ycp.edu) | M 10-12, T/Th 2-3, W 9-10
+
+Meeting times:
+
+> Section | Location | Times
+> ------- | -------- | -----
+> 101 | KEC 119 | T/Th 9:30-10:45
+> 102 | KEC 119 | T/Th 11:00-12:15
 
 Course Description
 ------------------
