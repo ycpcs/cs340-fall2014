@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Decidability of Regular Languages"
+title: "Lecture 9: Decidability of Regular Languages"
 ---
 
 Regular Languages are Decidable
