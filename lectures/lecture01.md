@@ -123,7 +123,7 @@ In the examples below, the alphabet is {a, b}.
 > (ba)+ | { ba, baba, bababa, ...}
 > (a&#124;b) | { a, b }
 > a&#124;b\* | { a, &epsilon;, b, bb, bbb, ... }
-> (a&#124;b) | { &epsilon;, a, b, aa, ab, ba, bb, ... }
+> (a&#124;b)\* | { &epsilon;, a, b, aa, ab, ba, bb, ... }
 > aa(ba)\*bb | { aabb, aababb, aabababb, ... }
 
 Application to programming languages
