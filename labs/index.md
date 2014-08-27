@@ -10,3 +10,4 @@ Labs are not graded, and you do not need to submit them.  However, they are very
 > Date | Lab | File
 > ---- | --- | ----
 > Tues, Aug 26 | [Lab 1: Regular expressions](lab01.html) | n/a
+> Thurs, Aug 28 | [Lab 2: Finite Automata using JFLAP](lab02.html) | n/a
