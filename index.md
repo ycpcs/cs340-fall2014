@@ -13,6 +13,7 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 * [Schedule](schedule.html)
 * [Assignments](assign/index.html)
 * [Labs](labs/index.html)
+* [Resources](resources/index.html)
 
 ## News
 
