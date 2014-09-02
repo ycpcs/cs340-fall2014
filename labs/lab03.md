@@ -7,4 +7,4 @@ title: "Lab 3: Eliminating Nondeterminism"
 
 Consider the following NFA (nondeterministic finite automaton):
 
-<img style="margin-left: 40px; width: 30em;" src="img/lab03.svg">
+<img style="margin-left: 40px; width: 40em;" src="img/lab03.svg">
