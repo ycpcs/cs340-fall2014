@@ -17,5 +17,6 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 
 ## News
 
+* **Sep 2** - [Assignment 2](assign/assign02.html) is due Tuesday, Sep 9th by 11:59 PM.
 * **Aug 25** - [Assignment 1](assign/assign01.html) is due Tuesday, Sep 2nd by 11:59 PM.
 * **Aug 22** - Welcome back!
