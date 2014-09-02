@@ -56,6 +56,59 @@ Recall that any nondeterministic finite automaton (NFA) can be converted to an e
 
 Here is a sketch of an algorithm to convert an NFA into a DFA. This algorithm uses the same basic idea as simulating the execution of an NFA by keeping track of *sets* of states that the NFA is in. However, instead of using the simulation to process an input string, the simulation is used to convert sets of NFA states into a single equivalent DFA state, for all possible sets of paths through the NFA.
 
+<pre>
+table := <i>map sets of NFA states to corresponding DFA state</i>
+
+<i>-- this function converts an NFA to a DFA</i>
+
+function ConvertNFAToDFA() {
+	work list := new empty queue
+
+	Start := set of NFA states equivalent to NFA start state
+
+	enqueue Start on to work list
+
+	while (work list is not empty) {
+		S := dequeue a set of NFA states from the work list
+
+		if (S has not been processed yet) {
+			mark S as processed
+
+			D = MapNFAStatesToDFAState(S)
+
+			for each symbol Y in alphabet {
+				T = set of states reachable on Y
+
+				E = MapNFAStatesToDFAState(T)
+
+				create DFA transition from D to E on symbol Y
+
+				enqueue T on to the work list
+			}
+		}
+	}
+
+	mark the first DFA state created as the DFA start state
+}
+
+<i>-- this function returns the DFA state correpsonding to a set of NFA states,</i>
+<i>-- creating the DFA state if necessary</i>
+
+function MapNFAStatesToDFAStates(U) {
+	if (table contains entry for U) {
+		return the DFA state in table corresponding to U
+	}
+
+	create new DFA state F in table corresponding to U
+
+	if (U contains an NFA accepting state) {
+		make F an accepting state
+	}
+
+	return F
+}
+</pre>
+
 Example
 -------
 
