@@ -12,4 +12,4 @@ Labs are not graded, and you do not need to submit them.  However, they are very
 > Tues, Aug 26 | [Lab 1: Regular expressions](lab01.html) | n/a
 > Thurs, Aug 28 | [Lab 2: Finite Automata using JFLAP](lab02.html) | n/a
 > Tues, Sep 2 | [Lab 3: Eliminating Nondeterminism](lab03.html) | n/a
-> Tues, Sep 9 | [Lab 4: Recursive Descent Parsing](lab04.html) | [RecursiveDescentJava.zip](../lecture/RecursiveDescentJava.java)
+> Tues, Sep 9 | [Lab 4: Recursive Descent Parsing](lab04.html) | [RecursiveDescentJava.zip](../lectures/RecursiveDescentJava.java)
