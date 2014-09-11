@@ -8,7 +8,7 @@ Getting Started
 
 Download the example implementation of precedence climbing:
 
-> [PrecedenceClimbingJava.zip](../lecture/PrecedenceClimbingJava.zip)
+> [PrecedenceClimbingJava.zip](../lectures/PrecedenceClimbingJava.zip)
 
 Import it into Eclipse.  You should see a project called **PrecedenceClimbing**.
 
