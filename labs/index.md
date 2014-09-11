@@ -13,3 +13,4 @@ Labs are not graded, and you do not need to submit them.  However, they are very
 > Thurs, Aug 28 | [Lab 2: Finite Automata using JFLAP](lab02.html) | n/a
 > Tues, Sep 2 | [Lab 3: Eliminating Nondeterminism](lab03.html) | n/a
 > Tues, Sep 9 | [Lab 4: Recursive Descent Parsing](lab04.html) | [RecursiveDescentJava.zip](../lectures/RecursiveDescentJava.java)
+> Thurs, Sep 11 | [Lab 5: Precedence Climbing](lab05.html) | [PrecedenceClimbingJava.zip](../lectures/PrecedenceClimbingJava.zip)
