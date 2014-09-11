@@ -26,4 +26,4 @@ You will need to modify the lexer so that it supports the exponentiation operato
 * Modify **Symbol.java** to define new terminal symbols for exponentiation and left and right parentheses
 * Modify the definition of the **fromCharacter** method in **Symbol.java** to handle **^**, **(**, and **)** characters
 
-You will also need to modify the **parseF** method in the parser class so that it applies the **F &rarr; ( E )** production when appropriate.
+You will also need to modify the **parsePrimary** method in the parser class so that it applies the **F &rarr; ( E )** production when appropriate.
