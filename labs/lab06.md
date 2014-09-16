@@ -35,14 +35,14 @@ then the final sequence should be
 
 The Turing Machine should start by moving to the end of the input string, then start moving to the left.
 
-If the Turning Machine sees a 0 on its scan to the left, it can change it to a 1 and halt. If it sees a 1, it should change the 1 to a zero and continue to the left (essentially carrying the result of adding 1 to 1 one place to the left.)
+If the Turing Machine sees a 0 on its scan to the left, it can change it to a 1 and halt. If it sees a 1, it should change the 1 to a zero and continue to the left (essentially carrying the result of adding 1 to 1 one place to the left.)
 
 Don't forget that the result can overflow past the left side of the string (as in the second example above.)
 
 Second Task
 -----------
 
-Create a Turning Machine which *decrements* (subtracts one from) the binary number on the input tape.
+Create a Turing Machine which *decrements* (subtracts one from) the binary number on the input tape.
 
 The process will be similar to incrementing.
 
