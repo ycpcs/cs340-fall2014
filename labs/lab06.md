@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Turing Machines"
+title: "Lab 6: Turing Machines"
 ---
 
 Your Task
