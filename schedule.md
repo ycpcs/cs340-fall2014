@@ -18,3 +18,4 @@ This page lists the schedule for the course.  Note that there may be minor chang
 > Tues, Sep 16 | [Lecture 7: Turing Machines](lectures/lecture07.html)
 > Thurs, Sep 18 | [Lecture 8: Decidability and the Halting Problem](lectures/lecture08.html)
 > Tues, Sep 23 | [Lecture 9: Decidability of Regular Languages](lectures/lecture09.html)
+> Thurs, Sep 25 | Exam 1 (open book, open notes)
