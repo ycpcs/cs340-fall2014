@@ -14,9 +14,11 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 * [Assignments](assign/index.html)
 * [Labs](labs/index.html)
 * [Resources](resources/index.html)
+* [Practice Exams](practice/index.html)
 
 ## News
 
+* **Sep 16** - Exam 1 will take place in class on Thursday, Sep 25th.  It is open book and open note.  A practice exam is available on the [Practice Exams](practice/index.html) page.  Note that there will be no programming on the exam, so you can ignore the programming question on the practice exam.
 * **Sep 11** - The due date for [Assignment 3](assign/assign03.html) has been changed to Thursday, Sep 18th by 11:59 PM.
 * **Sep 9** - [Assignment 3](assign/assign03.html) is due Tuesday, Sep 16th by 11:59 PM.
 * **Sep 2** - [Assignment 2](assign/assign02.html) is due Tuesday, Sep 9th by 11:59 PM.
