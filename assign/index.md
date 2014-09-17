@@ -10,3 +10,4 @@ This page links to homework assignments.
 > [Assignment 1: Regular expressions](assign01.html) | n/a | Tues, Sep 2nd by 11:59 PM
 > [Assignment 2: Finite automata](assign02.html) | n/a | Tues, Sep 9th by 11:59 PM
 > [Assignment 3: JSON Parser](assign03.html) | [CS340\_Assign03.zip](CS340_Assign03.zip) | Thurs, Sep 18th by 11:59 PM
+> [Assignment 4: Clojure MOOC](assign04.html) | n/a | Milestone 1: Mon, Sep 29<br>Milestone 2: Mon, Oct 6

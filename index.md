@@ -18,6 +18,7 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 
 ## News
 
+* **Sep 17** - [Assignment 4](assign/assign04.html) has been posted.  Milestone 1 is due Monday, Sep 29th, and Milestone 2 is due Monday, Oct 6th.  Note that this is an ungraded assignment, but you will want to do it because it covers Clojure programming topics that you will need to know for subsequent assignments.
 * **Sep 16** - Exam 1 will take place in class on Thursday, Sep 25th.  It is open book and open note.  A practice exam is available on the [Practice Exams](practice/index.html) page.  Note that there will be no programming on the exam, so you can ignore the programming question on the practice exam.
 * **Sep 11** - The due date for [Assignment 3](assign/assign03.html) has been changed to Thursday, Sep 18th by 11:59 PM.
 * **Sep 9** - [Assignment 3](assign/assign03.html) is due Tuesday, Sep 16th by 11:59 PM.

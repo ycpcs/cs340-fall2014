@@ -19,3 +19,5 @@ This page lists the schedule for the course.  Note that there may be minor chang
 > Thurs, Sep 18 | [Lecture 8: Decidability and the Halting Problem](lectures/lecture08.html)
 > Tues, Sep 23 | [Lecture 9: Decidability of Regular Languages](lectures/lecture09.html)
 > Thurs, Sep 25 | Exam 1 (open book, open notes)
+> Tues, Sep 30 | Chapter 7 (Clojure)
+> Thurs, Oct 2 | 
