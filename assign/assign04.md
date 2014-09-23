@@ -51,17 +51,6 @@ and the output should be something like
 
     /home/username/bin/lein
 
-If it says `/usr/bin/lein`, then you need to fix your `$PATH`
-    chmod a+x lein
-
-Also, make sure that your `$HOME/bin` directory appears earlier than the system executable directories on your `$PATH`.  You should be able to run the command
-
-    which lein
-
-and the output should be something like
-
-    /home/username/bin/lein
-
 If it says `/usr/bin/lein`, then you need to fix your `$PATH`.  One approach is to add the following code to your `.bashrc` file:
 
     if [ -z "$ADDED_HOME_BIN_TO_PATH" ]; then
