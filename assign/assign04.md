@@ -33,6 +33,47 @@ As an alternative to Eclipse and Counterclockwise, you can try installing [Light
 
 The computers in KEC 119 have Eclipse with Counterclockwise and Local Terminal.
 
+# Installing Leiningen
+
+The version of Leiningen installed by default in KEC 119 does not work.  Follow these steps to install a working version of Leiningen:
+
+    cd
+    mkdir -p bin
+    cd bin
+    wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+    chmod a+x lein
+
+Also, make sure that your `$HOME/bin` directory appears earlier than the system executable directories on your `$PATH`.  You should be able to run the command
+
+    which lein
+
+and the output should be something like
+
+    /home/username/bin/lein
+
+If it says `/usr/bin/lein`, then you need to fix your `$PATH`
+    chmod a+x lein
+
+Also, make sure that your `$HOME/bin` directory appears earlier than the system executable directories on your `$PATH`.  You should be able to run the command
+
+    which lein
+
+and the output should be something like
+
+    /home/username/bin/lein
+
+If it says `/usr/bin/lein`, then you need to fix your `$PATH`.  One approach is to add the following code to your `.bashrc` file:
+
+    if [ -z "$ADDED_HOME_BIN_TO_PATH" ]; then
+        export ADDED_HOME_BIN_TO_PATH=yes
+        export PATH=$HOME/bin:$PATH
+    fi
+
+Also: if it is possible that you have executed the wrong (system) version of the `lein` command at any point, then you should delete your `$HOME/.lein` directory:
+
+    cd
+    rm -rf .lein
+
 # Using Git
 
 The programming activities for each chapter are in a Git repository on GitHub.  The recommended way of starting each chapter is to fork the repository, and then clone your fork.
