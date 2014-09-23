@@ -58,6 +58,8 @@ If it says `/usr/bin/lein`, then you need to fix your `$PATH`.  One approach is 
         export PATH=$HOME/bin:$PATH
     fi
 
+(Note: your `.bashrc` file should be located in your home directory, and if it doesn't exist, you shoudl create it.)
+
 Also: if it is possible that you have executed the wrong (system) version of the `lein` command at any point, then you should delete your `$HOME/.lein` directory:
 
     cd
