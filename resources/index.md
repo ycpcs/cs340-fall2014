@@ -30,3 +30,7 @@ Run it as follows:
 * To test whether two regular expressions are equivalent, run the command
 
       java -jar regexToolkit.jar equiv
+
+# Clojure resources
+
+* [ClojureDocs.org](http://www.clojuredocs.org/) has documentation and examples for the built-in Clojure functions
