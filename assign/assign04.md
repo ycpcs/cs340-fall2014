@@ -99,3 +99,10 @@ To run the unit tests for a programming activity:
 2. Next, run the command <code>lein midje</code>.  The output will indicate how many tests passed and which tests (if any) failed.
 
 If you get an error from Leiningen about `midje` not being a valid task, try deleting the `.lein` directory (in your home directory) and running the command again.
+
+To test your functions interactively (highly recommended!):
+
+1. Start a Local Terminal and cd into the repository directory (as described above).
+2. Run the command `lein repl` to start a read-eval-print loop.
+3. Enter <code>(use '<i>namespace</i>)</code>, where *namespace* is the namespace defined for the chapter, e.g., `i-am-a-horse-in-the-land-of-booleans`
+4. Now you can call functions defined in your source code.  Note that you will need to exit and restart the REPL if you change your code.
