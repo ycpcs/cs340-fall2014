@@ -3,7 +3,7 @@ layout: default
 title: "Clojure Exercises I"
 ---
 
-[4clojure](www.4clojure.com) is a website with lots of online practice problems for learning Clojure.
+[4clojure](https://www.4clojure.com) is a website with lots of online practice problems for learning Clojure.
 
 Here are a few beginning problems you can try:
 
