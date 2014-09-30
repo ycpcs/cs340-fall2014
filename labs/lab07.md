@@ -16,3 +16,6 @@ Here are a few beginning problems you can try:
 * [Intro to Maps](https://www.4clojure.com/problem/10)
 * [Maps: conj](https://www.4clojure.com/problem/11)
 * [Intro to Sequences](https://www.4clojure.com/problem/12)
+* [Sequences: rest](https://www.4clojure.com/problem/13)
+* [Intro to Functions](https://www.4clojure.com/problem/14)
+* [Double Down](https://www.4clojure.com/problem/15)
