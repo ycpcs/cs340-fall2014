@@ -15,3 +15,4 @@ Labs are not graded, and you do not need to submit them.  However, they are very
 > Tues, Sep 9 | [Lab 4: Recursive Descent Parsing](lab04.html) | [RecursiveDescentJava.zip](../lectures/RecursiveDescentJava.java)
 > Thurs, Sep 11 | [Lab 5: Precedence Climbing](lab05.html) | [PrecedenceClimbingJava.zip](../lectures/PrecedenceClimbingJava.zip)
 > Tues, Sep 16 | [Lab 6: Turing Machines](lab06.html) | n/a
+> Tues, Sep 30 | [Lab 7: Clojure Exercises I](lab07.html) | n/a
