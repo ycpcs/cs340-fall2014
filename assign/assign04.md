@@ -3,10 +3,13 @@ layout: default
 title: "Assignment 4: Clojure MOOC"
 ---
 
+*Updated 10/2*: Added Milestone 3
+
 **Due**:
 
 * Milestone 1 is due Monday, Sept 29th
 * Milestone 2 is due Monday, Oct 6th
+* Milestone 3 is due Thursday, Oct 16th
 
 **Note**: This assignment will not be graded.
 
@@ -18,6 +21,7 @@ The [Functional programming with Clojure](http://mooc.cs.helsinki.fi/clojure) MO
 
 * Milestone 1: Complete **Basic tools**, **Training day**, and **I am a horse in the land of booleans**
 * Milestone 2: Complete **Structured data**
+* Milestone 3: Complete **P-P-P-Pokerface**
 
 You can find the chapters on the [Material and course content](http://iloveponies.github.io/120-hour-epic-sax-marathon/index.html) page.
 
