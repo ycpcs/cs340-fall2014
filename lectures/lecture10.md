@@ -22,7 +22,7 @@ Recommended reading: [Beating the Averages](http://www.paulgraham.com/avg.html) 
 Data types:
 
 * Integers, floating point numbers
-* Symbols (**:a**, **:hello**): often used as opaque identifiers
+* Keywords (**:a**, **:hello**): often used as opaque identifiers
 * Strings (which are actually Java String objects)
 * Lists (**'(1 2 3)**, **'(:a :b :c)**)
 * Vectors (**[1 2 3]**, **[:a :b :c]**)
