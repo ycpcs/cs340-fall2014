@@ -16,3 +16,4 @@ Labs are not graded, and you do not need to submit them.  However, they are very
 > Thurs, Sep 11 | [Lab 5: Precedence Climbing](lab05.html) | [PrecedenceClimbingJava.zip](../lectures/PrecedenceClimbingJava.zip)
 > Tues, Sep 16 | [Lab 6: Turing Machines](lab06.html) | n/a
 > Tues, Sep 30 | [Lab 7: Clojure Exercises I](lab07.html) | n/a
+> Tues, Oct 7 | [Lab 8: Clojure Exercises II](lab08.html) | n/a

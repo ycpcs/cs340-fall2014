@@ -21,3 +21,4 @@ This page lists the schedule for the course.  Note that there may be minor chang
 > Thurs, Sep 25 | Exam 1 (open book, open notes)
 > Tues, Sep 30 | Chapter 7 (Clojure), [Lecture 10: Why Clojure?](lectures/lecture10.html)
 > Thurs, Oct 2 | 
+> Tues, Oct 7 | [Lecture 11: Recursion and iteration in Clojure](lectures/lecture11.html)
