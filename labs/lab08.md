@@ -14,7 +14,9 @@ command from a terminal window.
 
 You can save your code in a file called **funcs.clj**. Load your code in the interpreter using the command:
 
-    (load-file "funcs.clj")
+{% highlight clojure %}
+(load-file "funcs.clj")
+{% endhighlight %}
 
 Your Task
 =========
@@ -31,8 +33,10 @@ Hints:
 
 Example:
 
-    user=> (last-element-of '(a b c))
-    c
+{% highlight clojure %}
+user=> (last-element-of '(a b c))
+c
+{% endhighlight %}
 
 **(2)** Write a Clojure function called **append-to-list**. It should take two parameters:
 
@@ -47,8 +51,10 @@ The cons function, given a value and a list as arguments, returns a new list con
 
 Example:
 
-    user=> (append-to-list 'd '(a b c))
-    (a b c d)
+{% highlight clojure %}
+user=> (append-to-list 'd '(a b c))
+(a b c d)
+{% endhighlight %}
 
 **(3)** Write a function called **reverse-list** which reverses the elements of a list given as its parameter.
 
@@ -56,29 +62,37 @@ Hint: Use your **append-to-list** function.
 
 Example:
 
-    user=> (reverse-list '(a b c d))
-    (d c b a)
+{% highlight clojure %}
+user=> (reverse-list '(a b c d))
+(d c b a)
+{% endhighlight %}
 
 **(4)** Find out how long a list needs to be for your **reverse-list** function to fail because it requires a new activation record for each recursive call.
 
 You can use the following **make-int-list** function to generate a list with a specified number of elements:
 
-    (defn make-int-list-work [min n accum]
-      (if (> min n)
-          accum
-          (recur min (- n 1) (cons n accum))))
+{% highlight clojure %}
+(defn make-int-list-work [min n accum]
+  (if (> min n)
+      accum
+      (recur min (- n 1) (cons n accum))))
 
-    ; Make a list containing all integers from 1 to n.
-    (defn make-int-list [n]
-      (make-int-list-work 1 n '()))
+; Make a list containing all integers from 1 to n.
+(defn make-int-list [n]
+  (make-int-list-work 1 n '()))
+{% endhighlight %}
 
 For example, the call
 
-    (make-int-list 100)
+{% highlight clojure %}
+(make-int-list 100)
+{% endhighlight %}
 
 will generate a list of all integers from 1 to 100. So, you just need to find a value *N* such that
 
-    (reverse-list (make-int-list N))
+{% highlight clojure %}
+(reverse-list (make-int-list N))
+{% endhighlight %}
 
 fails.
 
