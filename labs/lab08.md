@@ -82,6 +82,18 @@ You can use the following **make-int-list** function to generate a list with a s
   (make-int-list-work 1 n '()))
 {% endhighlight %}
 
+Here is a more compact version of **make-int-list** that uses the **loop** construct:
+
+{% highlight clojure %}
+(defn make-int-list [minval nval]
+  (loop [min minval
+         n nval
+         accum '()]
+    (if (> min n)
+      accum
+      (recur min (- n 1) (cons n accum)))))
+{% endhighlight %}
+
 For example, the call
 
 {% highlight clojure %}
