@@ -47,6 +47,8 @@ user=> <b>(add-to-all [1 2 3] 4)</b>
 "I CAN HAZ HIGHER ORDER FUNCTION?"
 </pre>
 
+You can also use the Counterclockwise REPL by typing Control-Alt-S when you are editing the `core.clj` file.  (Once the REPL is active, you can type Control-Alt-S again to have the REPL reload your functions.)
+
 # Submitting
 
 If you are using Eclipse, and have the Simple Marmoset Uploader plugin installed, just select the **clojure-quiz** project in the package explorer, click the blue up arrow icon, and enter your Marmoset username and password.
