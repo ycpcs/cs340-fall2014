@@ -130,7 +130,7 @@ The **do-production** function is the easiest of the three helpers: it applies a
 
 {% highlight clojure %}
 (defn parse-unit [token-seq]
-  ; unit -> statement_list
+  ; unit -> ^ statement_list
   (do-production :unit [parse-statement-list] token-seq))
 {% endhighlight %}
 
