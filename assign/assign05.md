@@ -116,7 +116,7 @@ The parser takes its inputs as a sequence of tokens.  Each token is a two-elemen
 > **:lparen** | left parenthesis, **(**
 > **:rparen** | right parenthesis, **)**
 > **:lbrace** | left brace, **{**
-> **:rbrace** | right brace, **)**
+> **:rbrace** | right brace, **}**
 
 Parse functions in the parser take a sequence of tokens and return a **SingleParseResult** record containing a **Node** (a parse tree representing the result of the parse), and a sequence containing the remaining input tokens.
 
