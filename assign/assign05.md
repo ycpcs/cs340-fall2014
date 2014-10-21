@@ -95,7 +95,7 @@ would retrieve the value of **n**'s **symbol** field.
 
 ## Tokens, Parse functions
 
-The parser takes its inputs as a sequence of tokens.  Each token is a two-element vector, where the first element is the token's lexeme, and the second element is the token's symbol, represented as a Clojure keyword value.  Here are the types of tokens:
+The parser takes its inputs as a sequence of tokens.  Each token is a two-element vector, where the first element is the token's lexeme, and the second element is the token's symbol, represented as a Clojure keyword value.  Here are the various types of tokens that the lexer produces:
 
 > Symbol | Meaning
 > ------ | -------
@@ -132,6 +132,16 @@ The **do-production** function is the easiest of the three helpers: it applies a
 (defn parse-unit [token-seq]
   ; unit -> statement_list
   (do-production :unit [parse-statement-list] token-seq))
+{% endhighlight %}
+
+If the right-hand side of a production has one or more terminal symbols, then the **expect** function can be used to return a symbol application function for consuming a particular type of terminal symbol (token).  For example, here is the implementation of the **parse-var-decl-statement** function:
+
+{% highlight clojure %}
+(defn parse-var-decl-statement [token-seq]
+  ; var_decl_statement -> ^ var identifier ;
+  (do-production :var_decl_statement
+                 [(expect :var) (expect :identifier) (expect :semicolon)]
+                 token-seq))
 {% endhighlight %}
 
 The only drawback to **do-production** is that it requires that you apply a complete production.  If you are only going to apply part of a production (consuming only some of the symbols on the right-hand side of a production), then you can use the **apply-production** function.  It takes a **ParseResult** and a list of symbol application functions, and returns an extended **ParseResult** created by applying the specified symbol application functions.  The **complete-production** function takes a nonterminal symbol (keyword) and a **ParseResult**, and returns a **SingleParseResult** containing a single parse node with all parse nodes in the **ParseResult**.  The **apply-production** and **complete-production** functions can be used together to apply a production in stages.  You can see an example of this in **parse-statement-list**.  (You will mostly likely not need to use **apply-production** or **complete-production**, but understanding how they work will be helpful in understanding how the parser works.)
