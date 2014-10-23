@@ -25,6 +25,6 @@ The program is in the file `sumints.mvm`.  You can execute it interactively with
 
 You can execute it noninteractively with the command
 
-    ./MiniVM.rb -x -i sumints.mvm
+    ./MiniVM.rb -x sumints.mvm
 
 Interactive execution is useful for understanding the exact behavior of the program.  Noninteractive execution is useful if you want to test the program for larger values of *N* (where tracing the entire execution of the program would be tedious.)
