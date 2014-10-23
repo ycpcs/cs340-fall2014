@@ -23,6 +23,8 @@ The program is in the file `sumints.mvm`.  You can execute it interactively with
 
     ./MiniVM.rb -x -i sumints.mvm
 
+In interactive mode, each time you press Enter, one instruction will be executed.
+
 You can execute it noninteractively with the command
 
     ./MiniVM.rb -x sumints.mvm
