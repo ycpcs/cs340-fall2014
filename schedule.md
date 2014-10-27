@@ -22,3 +22,5 @@ This page lists the schedule for the course.  Note that there may be minor chang
 > Tues, Sep 30 | Chapter 7 (Clojure), [Lecture 10: Why Clojure?](lectures/lecture10.html)
 > Thurs, Oct 2 | 
 > Tues, Oct 7 | [Lecture 11: Recursion and iteration in Clojure](lectures/lecture11.html)
+> Tues, Oct 28 | Chapter 4 (Prolog), [Lecture 12: Prolog](lectures/lecture12.html)
+> Thurs, Oct 30 | [Lecture 13: More Prolog](lectures/lecture13.html)

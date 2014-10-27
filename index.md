@@ -18,6 +18,7 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 
 ## News
 
+* **Oct 27** - The [Schedule](schedule.html) has been updated.
 * **Oct 21** - [Assignment 5](assign/assign05.html) is due Thursday, Oct 30th by 11:59 PM.
 * **Oct 2** - A third milestone (due Thursday, Oct 16th) has been added to [Assignment 4](assign/assign04.html).
 * **Sep 17** - [Assignment 4](assign/assign04.html) has been posted.  Milestone 1 is due Monday, Sep 29th, and Milestone 2 is due Monday, Oct 6th.  Note that this is an ungraded assignment, but you will want to do it because it covers Clojure programming topics that you will need to know for subsequent assignments.
