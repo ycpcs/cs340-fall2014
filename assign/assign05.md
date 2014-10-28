@@ -205,7 +205,95 @@ This parse tree corresponds to the input
 
 As you work on the parser, you can modify **testprog** to test other inputs to ensure they parse correctly.
 
-Coming soon: more test inputs and their expected parse trees.
+## Example inputs and parse trees
+
+Here are some example inputs you can try, along with their expected parse trees.  (Copy the example inputs into the contents of the string assigned to **testprog**.)
+
+Example input:
+
+    a * (b + 3);
+
+Expected output:
+
+    :unit
+    +--:statement_list
+       +--:statement
+          +--:op_mul
+          |  +--:primary
+          |  |  +--:identifier["a"]
+          |  +--:primary
+          |     +--:lparen["("]
+          |     +--:op_plus
+          |     |  +--:primary
+          |     |  |  +--:identifier["b"]
+          |     |  +--:primary
+          |     |     +--:int_literal["3"]
+          |     +--:rparen[")"]
+          +--:semicolon[";"]
+
+Example input:
+
+    while (a + b) { c; d*e*4; }
+
+Expected parse tree:
+
+    :unit
+    +--:statement_list
+       +--:while
+          +--:while["while"]
+          +--:lparen["("]
+          +--:op_plus
+          |  +--:primary
+          |  |  +--:identifier["a"]
+          |  +--:primary
+          |     +--:identifier["b"]
+          +--:rparen[")"]
+          +--:lbrace["{"]
+          +--:statement_list
+          |  +--:statement
+          |  |  +--:primary
+          |  |  |  +--:identifier["c"]
+          |  |  +--:semicolon[";"]
+          |  +--:statement_list
+          |     +--:statement
+          |        +--:op_mul
+          |        |  +--:op_mul
+          |        |  |  +--:primary
+          |        |  |  |  +--:identifier["d"]
+          |        |  |  +--:primary
+          |        |  |     +--:identifier["e"]
+          |        |  +--:primary
+          |        |     +--:int_literal["4"]
+          |        +--:semicolon[";"]
+          +--:rbrace["}"]
+
+Example input:
+
+    if (x) { y := z*3; }
+
+Expected parse tree:
+
+    :unit
+    +--:statement_list
+       +--:if
+          +--:if["if"]
+          +--:lparen["("]
+          +--:primary
+          |  +--:identifier["x"]
+          +--:rparen[")"]
+          +--:lbrace["{"]
+          +--:statement_list
+          |  +--:statement
+          |     +--:op_assign
+          |     |  +--:primary
+          |     |  |  +--:identifier["y"]
+          |     |  +--:op_mul
+          |     |     +--:primary
+          |     |     |  +--:identifier["z"]
+          |     |     +--:primary
+          |     |        +--:int_literal["3"]
+          |     +--:semicolon[";"]
+          +--:rbrace["}"]
 
 # Submitting
 
