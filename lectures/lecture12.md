@@ -109,16 +109,16 @@ Here is a possible set of inference rules:
     samefather(X, Y) :- father(Q, X), father(Q, Y).
     samemother(X, Y) :- mother(Q, X), mother(Q, Y).
 
-    siblings(X,Y) :- samemother(X,Y); samefather(X,Y).
+    siblings(X,Y) :- (samemother(X,Y); samefather(X,Y)), X \= Y.
 
     paternal_grandfather(X, Y) :- father(X, Q), father(Q, Y).
     paternal_grandmother(X, Y) :- mother(X, Z), father(Z, Y).
 
 Note the definition of the inference rule defining the **siblings** relation:
 
-    siblings(X,Y) :- samemother(X,Y); samefather(X,Y).
+    siblings(X,Y) :- (samemother(X,Y); samefather(X,Y)), X \= Y.
 
-The semicolon means "or" in the sense of logical disjunction. That is because two people are siblings if *either* they share the same father or mother.
+The semicolon means "or" in the sense of logical disjunction. That is because two people are siblings if *either* they share the same father or mother.  Also, the **\\=** operator means "not equals", preventing any person from being considered to be his or her own sibling.  (Prolog allows the same value to be bound to multiple variables.)
 
 Queries
 =======
@@ -178,6 +178,29 @@ is true. Note that the query
     samemother(homer, herb).
 
 is false, because there is no derivation for this fact.
+
+Queries with unknowns
+---------------------
+
+The real power of Prolog can be seen when a query contains one or more variables, which represent unknowns: for each variable, Prolog will attempt to find a value which can be substituted for the variable in order to make the query true.
+
+For example, the query:
+
+    paternal_grandfather(X, bart).
+
+yields the answer
+
+    yes.
+    X / grandpa
+    Solution: paternal_grandfather(grandpa,bart)
+
+showing that **grandpa** can be substituted for the variable **X** in order to make the query true.
+
+Note that a query with variables could lead to multiple solutions.  For example, the query
+
+    siblings(X, bart).
+
+yields two solutions, one where **lisa** is substituted for **X**, and one where **maggie** is substituted for **X**.
 
 Declarative programming
 =======================
