@@ -67,6 +67,10 @@ A list:
 
 Lists have an alternate syntax:
 
+<pre>
+[<i>FirstElement</i>|<i>RestOfList</i>]
+</pre>
+
 The alternate syntax is very useful for writing inference rules that operate on lists.
 
 As an example: finding the smallest number in a list of numbers.
