@@ -218,18 +218,19 @@ Expected output:
     :unit
     +--:statement_list
        +--:statement
-          +--:op_mul
-          |  +--:primary
-          |  |  +--:identifier["a"]
-          |  +--:primary
-          |     +--:lparen["("]
-          |     +--:op_plus
-          |     |  +--:primary
-          |     |  |  +--:identifier["b"]
-          |     |  +--:primary
-          |     |     +--:int_literal["3"]
-          |     +--:rparen[")"]
-          +--:semicolon[";"]
+          +--:expression_statement
+             +--:op_mul
+             |  +--:primary
+             |  |  +--:identifier["a"]
+             |  +--:primary
+             |     +--:lparen["("]
+             |     +--:op_plus
+             |     |  +--:primary
+             |     |  |  +--:identifier["b"]
+             |     |  +--:primary
+             |     |     +--:int_literal["3"]
+             |     +--:rparen[")"]
+             +--:semicolon[";"]
 
 Example input:
 
