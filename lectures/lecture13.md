@@ -19,7 +19,7 @@ These rules establish that *X* is *Y*'s ancestor if
 -   there is some *Z* such that *X* is *Z*'s father and *Z* is *Y*'s ancestor, or
 -   there is some *Z* such that *X* is *Z*'s mother and *Z* is *Y*'s ancestor
 
-Example query (using the ground truths from the [previous lecture](lecture13.html):
+Example query (using the ground truths from the [previous lecture](lecture12.html):
 
 <pre>
 | ?- <b>ancestor(grandpa, bart).</b>
