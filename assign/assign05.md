@@ -5,6 +5,8 @@ title: "Assignment 5: Parsing, Part 1"
 
 **Due**: Thursday, Oct 30th by 11:59 PM
 
+*Updated* 10/30: Fixed expected parse trees.
+
 # Getting Started
 
 Download [CS340\_Assign05.zip](CS340_Assign05.zip).
@@ -240,7 +242,7 @@ Expected parse tree:
 
     :unit
     +--:statement_list
-       +--:while
+       +--:statement
           +--:while["while"]
           +--:lparen["("]
           +--:op_plus
@@ -252,20 +254,22 @@ Expected parse tree:
           +--:lbrace["{"]
           +--:statement_list
           |  +--:statement
-          |  |  +--:primary
-          |  |  |  +--:identifier["c"]
-          |  |  +--:semicolon[";"]
+          |  |  +--:expression_statement
+          |  |     +--:primary
+          |  |     |  +--:identifier["c"]
+          |  |     +--:semicolon[";"]
           |  +--:statement_list
           |     +--:statement
-          |        +--:op_mul
-          |        |  +--:op_mul
-          |        |  |  +--:primary
-          |        |  |  |  +--:identifier["d"]
-          |        |  |  +--:primary
-          |        |  |     +--:identifier["e"]
-          |        |  +--:primary
-          |        |     +--:int_literal["4"]
-          |        +--:semicolon[";"]
+          |        +--:expression_statement
+          |           +--:op_mul
+          |           |  +--:op_mul
+          |           |  |  +--:primary
+          |           |  |  |  +--:identifier["d"]
+          |           |  |  +--:primary
+          |           |  |     +--:identifier["e"]
+          |           |  +--:primary
+          |           |     +--:int_literal["4"]
+          |           +--:semicolon[";"]
           +--:rbrace["}"]
 
 Example input:
@@ -276,7 +280,7 @@ Expected parse tree:
 
     :unit
     +--:statement_list
-       +--:if
+       +--:statement
           +--:if["if"]
           +--:lparen["("]
           +--:primary
@@ -285,15 +289,16 @@ Expected parse tree:
           +--:lbrace["{"]
           +--:statement_list
           |  +--:statement
-          |     +--:op_assign
-          |     |  +--:primary
-          |     |  |  +--:identifier["y"]
-          |     |  +--:op_mul
-          |     |     +--:primary
-          |     |     |  +--:identifier["z"]
-          |     |     +--:primary
-          |     |        +--:int_literal["3"]
-          |     +--:semicolon[";"]
+          |     +--:expression_statement
+          |        +--:op_assign
+          |        |  +--:primary
+          |        |  |  +--:identifier["y"]
+          |        |  +--:op_mul
+          |        |     +--:primary
+          |        |     |  +--:identifier["z"]
+          |        |     +--:primary
+          |        |        +--:int_literal["3"]
+          |        +--:semicolon[";"]
           +--:rbrace["}"]
 
 # Submitting
