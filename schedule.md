@@ -24,3 +24,6 @@ This page lists the schedule for the course.  Note that there may be minor chang
 > Tues, Oct 7 | [Lecture 11: Recursion and iteration in Clojure](lectures/lecture11.html)
 > Tues, Oct 28 | Chapter 4 (Prolog), [Lecture 12: Prolog](lectures/lecture12.html)
 > Thurs, Oct 30 | [Lecture 13: More Prolog](lectures/lecture13.html)
+> Tues, Nov 4 | Chapter 6 (Erlang), [Lecture 14: Erlang](lectures/lecture14.html)
+> Thurs, Nov 6 | [Lecture 15: More Erlang](lectures/lecture15.html)
+> Tues, Nov 11 | [Lecture 16: Concurrency in Erlang](lectures/lecture16.html)
