@@ -46,3 +46,86 @@ Add the following productions:
 In your **parse-statement** function, just apply the *statement* → *if\_statement* production if the lookahead token is **:if**, and apply the *statement* → *while\_statement* production if the lookahead token is **:while**.
 
 Making these changes will make it easy to create AST nodes for **:statement** parse nodes: all that will be required is constructing an AST node from the single child of the **:statement** node (since all statement nodes will now have a single child.)
+
+# Hints
+
+In general, building an AST will involve recursively converting child parse trees into ASTs.  Of course, there will be some base cases where a parse node is already in the form of an AST.  (For example, identifiers, int literals, and string literals can be considered to already be ASTs.)
+
+You will need to think carefully about the structure of the parse nodes you will encounter, and how to transform them into equivalent AST nodes.
+
+There are several helper functions that you may find useful.
+
+The **make-node** function provides a convenient way to create a new AST node.  It takes a symbol and a vector of child nodes as parameters.
+
+The **children** function takes a parse node as a parameter and returns a vector containing the children of the parse node.  (It will throw an exception if passed a terminal node.)
+
+The **get-child** function takes a parse node and an integer *n*, and returns the *n*th child of the parse node.
+
+The **recur-on-children** takes a parse node as a parameter, and returns an AST node whose symbol is the same as the parse node, and whose children are ASTs constructed from the children of the parse node.  (Hint: this should be useful for nodes representing binary operators.)
+
+# Testing
+
+You can test your **build-ast** function by changing the definition of the **testprog** variable (defined towards the bottom of `astbuilder.clj`.  The value of this variable is parsed, an AST is constructed from the resulting parse tree, **build-ast** is called to convert the parse tree to an AST, and the AST is assigned to the variable **prog**.
+
+In a REPL, you can evaluate
+
+{% highlight clojure %}
+(pp/pretty-print prog)
+{% endhighlight %}
+
+to print the AST.
+
+Here are some example inputs and the expected ASTs:
+
+Example input:
+
+    var a; a := 3*4;
+
+Expected AST:
+
+    :unit
+    +--:statement_list
+       +--:var_decl_statement
+       |  +--:identifier["a"]
+       +--:expression_statement
+          +--:op_assign
+             +--:identifier["a"]
+             +--:op_mul
+                +--:int_literal["3"]
+                +--:int_literal["4"]
+
+Example input:
+
+    a * (b + 3);
+
+Expected AST:
+
+    :unit
+    +--:statement_list
+       +--:expression_statement
+          +--:op_mul
+             +--:identifier["a"]
+             +--:op_plus
+                +--:identifier["b"]
+                +--:int_literal["3"]
+
+Example input:
+
+    while (a + b) { c; d*e*4; }
+
+Expected AST:
+
+    +--:statement_list
+       +--:while_statement
+          +--:op_plus
+          |  +--:identifier["a"]
+          |  +--:identifier["b"]
+          +--:statement_list
+             +--:expression_statement
+             |  +--:identifier["c"]
+             +--:expression_statement
+                +--:op_mul
+                   +--:op_mul
+                   |  +--:identifier["d"]
+                   |  +--:identifier["e"]
+                   +--:int_literal["4"]
