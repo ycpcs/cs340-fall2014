@@ -63,7 +63,7 @@ Things get interesting when we use pattern matching to extract information from 
 {lineitem, {item, "Bananas"}, {quantity, HowMany}} = Item.
 {% endhighlight %}
 
-This statement assigns the quantity associated with the **Item** tuple to the variable **HowMany**. This is the same idea as unification in Prolog: Erlang will try to make the left hand side equivalent to the right hand side. Constant values such as symbols and strings must be exactly equal for the match to succeed. Variables will match whatever value they correspond to on the other side.
+This statement assigns the quantity associated with the **Item** tuple to the variable **HowMany**. This is the same idea as unification in Prolog: Erlang will try to make the left hand side equivalent to the right hand side.  It is also reminscent of vector destructuring in Clojure.  Constant values such as symbols and strings must be exactly equal for the match to succeed. Variables will match whatever value they correspond to on the other side.
 
 Functions
 =========
@@ -82,12 +82,14 @@ Because Erlang is a functional language, all computations involving repetition m
 
 Here is a module defined in a source file called **series.erl**:
 
-    -module(series).
-    -export([fib/1]).
+{% highlight erlang %}
+-module(series).
+-export([fib/1]).
 
-    fib(0) -> 1;
-    fib(1) -> 1;
-    fib(N) -> fib(N-2) + fib(N-1).
+fib(0) -> 1;
+fib(1) -> 1;
+fib(N) -> fib(N-2) + fib(N-1).
+{% endhighlight %}
 
 To iteractively compile this module and execute the **fib** function in **erl**:
 
