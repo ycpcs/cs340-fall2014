@@ -72,7 +72,7 @@ You can test your **build-ast** function by changing the definition of the **tes
 In a REPL, you can evaluate
 
 {% highlight clojure %}
-(pp/pretty-print prog)
+(pp/pretty-print ast)
 {% endhighlight %}
 
 to print the AST.
