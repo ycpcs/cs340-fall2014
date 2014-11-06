@@ -3,7 +3,7 @@ layout: default
 title: "Assignment 7: Parsing, Part 2"
 ---
 
-*Preliminary, not official yet*
+**Due**: Thursday, Oct 13th by 11:59 PM
 
 # Getting Started
 
@@ -19,7 +19,7 @@ Your task is to transform the parse trees produced by your parser into [abstract
 
 There are three things that your **build-ast** function should do:
 
-* All nonterminal nodes that have a single child should be eliminated.
+* All nonterminal nodes that have a single child should be eliminated.  The only exception is the **:unit** node at the root of the parse tree, which should be preserved.
 * **:statement\_list** nodes should be simplified so that all of the statements are direct children of the statement list node.
 * All terminal nodes should be eliminated, unless they contain information that is important.  For example, "punctuation" nodes such as **:lparen**, **:semicolon** should be eliminated, but **:identifier**, **:int\_literal**, and **str\_literal** nodes should be preserved
 
@@ -62,6 +62,8 @@ The **children** function takes a parse node as a parameter and returns a vector
 The **get-child** function takes a parse node and an integer *n*, and returns the *n*th child of the parse node.
 
 The **recur-on-children** takes a parse node as a parameter, and returns an AST node whose symbol is the same as the parse node, and whose children are ASTs constructed from the children of the parse node.  (Hint: this should be useful for nodes representing binary operators.)
+
+**:primary** nodes representing parenthesized expressions will require special handling: specifically, the *second* child should be recursively turned into an AST, rather than the first child (which is the correct approach for the other kinds of primary expressions.)
 
 # Testing
 
@@ -129,3 +131,42 @@ Expected AST:
                    |  +--:identifier["d"]
                    |  +--:identifier["e"]
                    +--:int_literal["4"]
+
+# Grading
+
+Your assignment grade will be determined as follows:
+
+* Flattening of statement lists: 40%
+* Removing unnecessary nonterminal nodes: 15%
+* Removing unnecessary terminal nodes: 15%
+* Binary expressions: 15%
+* If and while statements: 15%
+
+# Submitting
+
+When you are done, submit the lab to the Marmoset server using either of the methods below.
+
+> **Important**: after you submit, log into the submission server and verify that the correct files were uploaded. You are responsible for ensuring that you upload the correct files. I may assign a grade of 0 for an incorrectly submitted assignment.
+
+From Eclipse
+------------
+
+If you have the [Simple Marmoset Uploader Plugin](http://ycpcs.github.io/cs201-fall2014/resources/index.html) installed, select the project (**CS340\_Assign07**) in the package explorer and then press the blue up arrow button in the toolbar. Enter your Marmoset username and password when prompted.
+
+From a web browser
+------------------
+
+Create a zip file containing your completed project.  (If you are in Eclipse, you can use **File &rarr; Export... &rarr; General &rarr; Archive File**.)
+
+Upload the saved zip file to the Marmoset server as **assign07**. The server URL is
+
+> [https://cs.ycp.edu/marmoset/](https://cs.ycp.edu/marmoset/)
+
+From the command line
+---------------------
+
+From the command line, run the command
+
+    make submit
+
+Type your Marmoset username and password when prompted.
