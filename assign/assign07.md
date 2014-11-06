@@ -11,7 +11,7 @@ Download [CS340\_Assign07.zip](CS340_Assign07.zip).
 
 If you are using Counterclockwise under Eclipse, you can import the zipfile as an Eclipse project.
 
-You should copy your `parser2.clj` file into the `src/minilang` directory.
+You should copy your `parser2.clj` file from [Assignment 5](assign05.html) into the `src/minilang` directory.
 
 # Your task
 
