@@ -27,3 +27,6 @@ This page lists the schedule for the course.  Note that there may be minor chang
 > Tues, Nov 4 | Chapter 6 (Erlang), [Lecture 14: Erlang](lectures/lecture14.html)
 > Thurs, Nov 6 | [Lecture 15: More Erlang](lectures/lecture15.html)
 > Tues, Nov 11 | [Lecture 16: Concurrency in Erlang](lectures/lecture16.html)
+> Thurs, Nov 13 | Chapter 2 (Ruby), [Lecture 17: Ruby](lectures/lecture17.html)
+> Tues, Nov 18 | [Lecture 18: Ruby Arrays, Hashes, Mixins](lectures/lecture18.html)
+> Thurs, Nov 20 | [Lecture 19: Metaprogramming in Ruby](lectures/lecture19.html)
