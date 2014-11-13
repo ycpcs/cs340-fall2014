@@ -19,14 +19,18 @@ Everything is an Object
 
 Ruby is a pure object-oriented language; all values are references to objects. For example, each of the following two statements prints "5"
 
-    puts 2 + 3
-    puts 2.+(3)
+{% highlight ruby %}
+puts 2 + 3
+puts 2.+(3)
+{% endhighlight %}
 
 The expression "2 + 3" is familiar: literal values 2 and 3 are added by an infix + operator. In most languages, values 2 and 3 would belong to a primitive integer type distinct from the universe of classes and user-defined types. In Ruby, they are instances of the Fixnum class. The second code example above makes a direct call to the + method on the object 2, passing the argument 3.
 
 We can directly inquire the class an object belongs to by calling the "class" method.
 
-    puts 2.class
+{% highlight ruby %}
+puts 2.class
+{% endhighlight %}
 
 This prints "Fixnum".
 
@@ -37,9 +41,11 @@ Methods in Ruby can take a code block as an argument. You can think of a code bl
 
 Ruby uses blocks in many contexts where some operation is being performed on a sequence of values. For example, we can compute a factorial this way:
 
-    c = 1
-    (1..6).each do |n| c *= n end
-    puts c
+{% highlight ruby %}
+c = 1
+(1..6).each do |n| c *= n end
+puts c
+{% endhighlight %}
 
 Note that the value (1..6) is an instance of the Range class. Its "each" method invokes a code block for each member of the range, passing the member as the argument to the block. The code block in this code is the part between "do" and "end"; the block has a single parameter "n" which receives the value of each member of the range in sequence.
 
@@ -128,12 +134,14 @@ A regular expression's class is Regexp.
 
 Example:
 
-    r = /foo|bar/
-    puts r.class
-    puts r.match('foo') ? 'yes' : 'no'
-    puts r.match('bar') ? 'yes' : 'no'
-    puts r.match('foobaz') ? 'yes' : 'no'
-    puts r.match('blat') ? 'yes' : 'no'
+{% highlight ruby %}
+r = /foo|bar/
+puts r.class
+puts r.match('foo') ? 'yes' : 'no'
+puts r.match('bar') ? 'yes' : 'no'
+puts r.match('foobaz') ? 'yes' : 'no'
+puts r.match('blat') ? 'yes' : 'no'
+{% endhighlight %}
 
 This code produces the output
 
@@ -150,17 +158,19 @@ Ignoring case in a regular expression
 
 The "i" modifier causes a regular expression object to match case-insensitively:
 
-    #! /usr/bin/ruby
+{% highlight ruby %}
+#! /usr/bin/ruby
 
-    r = /foobar/i;
+r = /foobar/i;
 
-    if r.match('foobar')
-        puts "yes"
-    end
+if r.match('foobar')
+    puts "yes"
+end
 
-    if r.match('FOObaR')
-        puts "yes"
-    end
+if r.match('FOObaR')
+    puts "yes"
+end
+{% endhighlight %}
 
 This program outputs
 
@@ -174,28 +184,32 @@ The gsub method of the String class replaces all occurrences of substrings match
 
 Example: removing HTML tags from a string.
 
-    #! /usr/bin/ruby
+{% highlight ruby %}
+#! /usr/bin/ruby
 
-    matchtag = /<[^>]*>/;
+matchtag = /<[^>]*>/;
 
-    STDIN.each do |line|
-        # Remove newline from end of line
-        line.chomp!
+STDIN.each do |line|
+    # Remove newline from end of line
+    line.chomp!
 
-        # Replace all occurrences of HTML tags from the string
-        line = line.gsub(matchtag, '')
+    # Replace all occurrences of HTML tags from the string
+    line = line.gsub(matchtag, '')
 
-        # Print out line
-        puts line
-    end
+    # Print out line
+    puts line
+end
+{% endhighlight %}
 
 String interpolation
 ====================
 
 A double-quoted string can have the textual representations of values stored in variables automatically substituted in the string. For example:
 
-    s = 'Alice'
-    puts "Hi #{s}"
+{% highlight ruby %}
+s = 'Alice'
+puts "Hi #{s}"
+{% endhighlight %}
 
 produces the output
 
@@ -203,8 +217,10 @@ produces the output
 
 Note that arbitrary expressions may be used:
 
-    n = 4
-    puts "n + 5 is #{n + 5}"
+{% highlight ruby %}
+n = 4
+puts "n + 5 is #{n + 5}"
+{% endhighlight %}
 
 The result of the expression is converted to a string (by calling the **to\_s** method) before being substituted into the result string.
 
@@ -213,52 +229,56 @@ Classes and methods
 
 Ruby classes and methods work more or less the same way as in C++, Java, and other object-oriented languages.
 
-    class Animal
+{% highlight ruby %}
+class Animal
+end
+
+class Dog < Animal
+    def noise
+        puts "Bark"
     end
+end
 
-    class Dog < Animal
-        def noise
-            puts "Bark"
-        end
+class Cat < Animal
+    def noise
+        puts "Meow"
     end
+end
 
-    class Cat < Animal
-        def noise
-            puts "Meow"
-        end
-    end
+fifi = Dog::new
+brutus = Cat::new
 
-    fifi = Dog::new
-    brutus = Cat::new
-
-    fifi.noise
-    brutus.noise
+fifi.noise
+brutus.noise
+{% endhighlight %}
 
 Ruby uses the convention that an identifier beginning with an at symbol (@) denotes a field:
 
-    class Animal
-        def initialize(name)
-            @name = name
-        end
+{% highlight ruby %}
+class Animal
+    def initialize(name)
+        @name = name
     end
+end
 
-    class Dog < Animal
-        def noise
-            puts "#{@name}: Bark"
-        end
+class Dog < Animal
+    def noise
+        puts "#{@name}: Bark"
     end
+end
 
-    class Cat < Animal
-        def noise
-            puts "#{@name}: Meow"
-        end
+class Cat < Animal
+    def noise
+        puts "#{@name}: Meow"
     end
+end
 
-    fifi = Dog::new("Fifi")
-    brutus = Cat::new("Brutus")
+fifi = Dog::new("Fifi")
+brutus = Cat::new("Brutus")
 
-    fifi.noise
-    brutus.noise
+fifi.noise
+brutus.noise
+{% endhighlight %}
 
 Note that Animal's constructor method (initialize) is inherited by both Dog and Cat.
 
@@ -271,13 +291,17 @@ Classes and objects in Ruby are much more dynamic and flexible than Java or C++.
 
 For example, we can add a method to an existing object at runtime:
 
-    def fifi.walkies
-        puts "#{@name} goes for walkies"
-    end
+{% highlight ruby %}
+def fifi.walkies
+    puts "#{@name} goes for walkies"
+end
+{% endhighlight %}
 
 The method call
 
-    fifi.walkies
+{% highlight ruby %}
+fifi.walkies
+{% endhighlight %}
 
 produces the output
 
@@ -285,8 +309,10 @@ produces the output
 
 However, the code
 
-    rex = Dog::new("Rex")
-    rex.walkies
+{% highlight ruby %}
+rex = Dog::new("Rex")
+rex.walkies
+{% endhighlight %}
 
 Produces the following error:
 
@@ -298,24 +324,28 @@ We can also define a method within a class whose purpose is to handle all method
 
 Example:
 
-    #! /usr/bin/ruby
+{% highlight ruby %}
+#! /usr/bin/ruby
 
-    class All_Method
-        def method_missing(method, *args)
-            method_name = method.to_s
-            print method_name
-            args.each do |arg|
-                print " #{arg.to_s}"
-            end
-            print "\n"
+class All_Method
+    def method_missing(method, *args)
+        method_name = method.to_s
+        print method_name
+        args.each do |arg|
+            print " #{arg.to_s}"
         end
+        print "\n"
     end
+end
+{% endhighlight %}
 
 The code
 
-    a = All_Method::new
+{% highlight ruby %}
+a = All_Method::new
 
-    a.hi_there
+a.hi_there
+{% endhighlight %}
 
 produces the output
 
@@ -323,7 +353,9 @@ produces the output
 
 The code
 
-    a.i_can_do_anything 'a', 'b', 'c'
+{% highlight ruby %}
+a.i_can_do_anything 'a', 'b', 'c'
+{% endhighlight %}
 
 produces the output
 
