@@ -15,9 +15,11 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 * [Labs](labs/index.html)
 * [Resources](resources/index.html)
 * [Practice Exams](practice/index.html)
+* [Examples](examples/index.html)
 
 ## News
 
+* **Nov 18** - A solution to the [Clojure quiz](assign/clojure-quiz.html) has been posted on the [Examples](examples/index.html) page.
 * **Nov 17** - The due date for [Assignment 7](assign/assign07.html) has been extended to Thursday, Nov 20th by 11:59 PM.
 * **Nov 11** - The [Schedule](schedule.html) has been updated.
 * **Nov 6** - [Assignment 7](assign/assign07.html) is due Thursday, November 13th by 11:59 PM.
