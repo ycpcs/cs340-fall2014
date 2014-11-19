@@ -14,3 +14,4 @@ This page links to homework assignments.
 > [Assignment 5: Parsing, Part 1](assign05.html) | [CS340\_Assign05.zip](CS340_Assign05.zip) | Thursday, Oct 30th by 11:59 PM
 > [Assignment 6: Boolean Function Synthesis](assign06.html) | n/a | Thursday, Oct 6th by 11:59 PM
 > [Assignment 7: Parsing, Part 2](assign07.html) | [CS340\_Assign07.zip](CS340_Assign07.zip) | Thursday, Oct 20th by 11:59 PM
+> [Assignment 8: Code Generation](assign08.html) | [CS340\_Assign08.zip](CS340_Assign08.zip) | Tuesday, Dec 9th by 11:59 PM
