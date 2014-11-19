@@ -3,7 +3,7 @@ layout: default
 title: "Assignment 8: Code Generation"
 ---
 
-*Note: this is somewhat incomplete*
+*Note: this is mostly complete, but there will be updates in the near future*
 
 **Due**: Tuesday, Dec 9th by 11:59 PM
 
@@ -108,13 +108,13 @@ Here is the basic idea:
 
 * For statement lists, recursively generate code for each child statement
 * Nothing is required for var decl statements
-* For expression statements, recursively generate code for the expression, then either pop the result value off by emitting a `pop` instruction (if the expression statement does not have the `:last` property), or print it by emitting `syscall $println` (if the expression statement does have the `:last` property)
+* For expression statements, recursively generate code for the expression, then either pop the result value off by emitting a `pop` instruction (if the expression statement does not have the `:last` property), or print it by emitting `syscall $println` followed by `pop` (if the expression statement does have the `:last` property)
 * For binary operators other than `:op_assign`, recursively generate code for the two child sub-expressions, and then emit an appropriate arithmetic instruction (e.g., `add`, `sub`, `mul`, etc.)
-* For `:op_assign`, recursively emit code for the right-hand-side expression, the emit an `stlocal` expression to store the result in a local variable, using the value of the `:regnum` property of the identifier to know which MiniVM local variable to store into; also see the note below in the "Stack management" section
+* For `:op_assign`, recursively emit code for the right-hand-side expression, the emit an `stlocal` instruction to store the result in a local variable, using the value of the `:regnum` property of the identifier to know which MiniVM local variable to store into; also see the note below in the "Stack management" section
 * For `:int_literal` nodes, emit an `ldc_i` instruction to load the constant integer onto the operand stack
 * For `:identifier` nodes which appear in expressions, emit an `ldlocal` instruction, using the value of the `:regnum` property to know which MiniVM local variable to load from
 
-The `compile-unit` function is provided for you: it takes a complete augmented AST (with a `:unit` node as its root) and generates a complete MiniVM program for you.  This function is necessary because some prologue and epilogue code is required: the prologue creates an initial stack frame, and the epilogue causes the MiniVM program to exit cleanly.
+The `compile-unit` function is provided for you: it takes a complete augmented AST (with a `:unit` node as its root) and generates a complete MiniVM program for you.  This function is necessary because some prologue and epilogue code is required to form a complete MiniVM program: the prologue creates an initial stack frame, and the epilogue causes the MiniVM program to exit cleanly.
 
 When you test your code generator, you should do so by using the `compile-unit` function, e.g.
 
@@ -123,6 +123,10 @@ When you test your code generator, you should do so by using the `compile-unit` 
 {% endhighlight %}
 
 to generate code for the `testprog` test program at the bottom of `codegen.clj`.  I suggest running this in a REPL.
+
+To try out your generated code, copy the generated instructions and save them to a file &mdash; e.g., "prog.mvm" &mdash; then execute it interactively with the `MiniVM.rb` program, e.g.:
+
+    ./MiniVM.rb -x -i prog.mvm
 
 ## Stack management
 
@@ -185,19 +189,21 @@ For the following minilang program:
 
 A possible MiniVM program is
 
-    main:
-        enter 0, 1
-        ldc_i 4
-        ldc_i 5
-        mul
-        dup
-        stlocal 0
-        pop
-        ldlocal 0
-        syscall $println
-        pop
-        ldc_i 0
-        ret
+{% highlight asm %}
+main:
+    enter 0, 1
+    ldc_i 4
+    ldc_i 5
+    mul
+    dup
+    stlocal 0
+    pop
+    ldlocal 0
+    syscall $println
+    pop
+    ldc_i 0
+    ret
+{% endhighlight %}
 
 For the following minilang program:
 
@@ -205,26 +211,61 @@ For the following minilang program:
 
 A possible MiniVM program is
 
-    main:
-        enter 0, 3
-        ldc_i 6
-        dup
-        stlocal 1
-        pop
-        ldc_i 3
-        dup
-        stlocal 2
-        pop
-        ldlocal 1
-        ldlocal 2
-        mul
-        dup
-        stlocal 0
-        syscall $println
-        pop
-        ldc_i 0
-        ret
+{% highlight asm %}
+main:
+    enter 0, 3
+    ldc_i 6
+    dup
+    stlocal 1
+    pop
+    ldc_i 3
+    dup
+    stlocal 2
+    pop
+    ldlocal 1
+    ldlocal 2
+    mul
+    dup
+    stlocal 0
+    syscall $println
+    pop
+    ldc_i 0
+    ret
+{% endhighlight %}
+
+# Grading
+
+Coming soon.
+
+## Insane extra credit
+
+For extra credit, implement code generation for `:if_statement` and `:while_statement` AST nodes.  (More information coming soon.)
 
 # Submitting
 
+When you are done, submit the lab to the Marmoset server using either of the methods below.
 
+> **Important**: after you submit, log into the submission server and verify that the correct files were uploaded. You are responsible for ensuring that you upload the correct files. I may assign a grade of 0 for an incorrectly submitted assignment.
+
+From Eclipse
+------------
+
+If you have the [Simple Marmoset Uploader Plugin](http://ycpcs.github.io/cs201-fall2014/resources/index.html) installed, select the project (**CS340\_Assign08**) in the package explorer and then press the blue up arrow button in the toolbar. Enter your Marmoset username and password when prompted.
+
+From a web browser
+------------------
+
+Create a zip file containing your completed project.  (If you are in Eclipse, you can use **File &rarr; Export... &rarr; General &rarr; Archive File**.)
+
+Upload the saved zip file to the Marmoset server as **assign08**. The server URL is
+
+> [https://cs.ycp.edu/marmoset/](https://cs.ycp.edu/marmoset/)
+
+From the command line
+---------------------
+
+From the command line, run the command
+
+    make submit
+
+Type your Marmoset username and password when prompted.
