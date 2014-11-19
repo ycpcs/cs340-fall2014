@@ -3,6 +3,8 @@ layout: default
 title: "Assignment 8: Code Generation"
 ---
 
+*Note: this is somewhat incomplete*
+
 **Due**: Tuesday, Dec 9th by 11:59 PM
 
 # Getting Started
@@ -108,14 +110,25 @@ Here is the basic idea:
 * Nothing is required for var decl statements
 * For expression statements, recursively generate code for the expression, then either pop the result value off by emitting a `pop` instruction (if the expression statement does not have the `:last` property), or print it by emitting `syscall $println` (if the expression statement does have the `:last` property)
 * For binary operators other than `:op_assign`, recursively generate code for the two child sub-expressions, and then emit an appropriate arithmetic instruction (e.g., `add`, `sub`, `mul`, etc.)
-* For `:op_assign`, recursively emit code for the right-hand-side expression, the emit an `stlocal` expression to store the result in a local variable, using the value of the `:regnum` property of the identifier to know which MiniVM local variable to store into
+* For `:op_assign`, recursively emit code for the right-hand-side expression, the emit an `stlocal` expression to store the result in a local variable, using the value of the `:regnum` property of the identifier to know which MiniVM local variable to store into; also see the note below in the "Stack management" section
 * For `:int_literal` nodes, emit an `ldc_i` instruction to load the constant integer onto the operand stack
 * For `:identifier` nodes which appear in expressions, emit an `ldlocal` instruction, using the value of the `:regnum` property to know which MiniVM local variable to load from
 
+The `compile-unit` function is provided for you: it takes a complete augmented AST (with a `:unit` node as its root) and generates a complete MiniVM program for you.  This function is necessary because some prologue and epilogue code is required: the prologue creates an initial stack frame, and the epilogue causes the MiniVM program to exit cleanly.
+
+When you test your code generator, you should do so by using the `compile-unit` function, e.g.
+
+{% highlight clojure %}
+(compile-unit aast)
+{% endhighlight %}
+
+to generate code for the `testprog` test program at the bottom of `codegen.clj`.  I suggest running this in a REPL.
+
 ## Stack management
 
-You will need to think carefully about how to manage the MiniVM operand stack.  The basic idea is
-that the code generated for each statement should not cause the operand stack either to grow or shrink.
+You will need to think carefully about how to manage the MiniVM operand stack.  The basic idea is that the code generated for each statement should not cause the operand stack either to grow or shrink.
+
+For `:op_assign` expressions, the value of the right-hand-side expression should be left on the stack.  You can use the `dup` MiniVM instruction to make a copy of it just before you use `stlocal` to store it in a local variable: this ensures that a copy is left on the stack after the value is stored.
 
 ## Hints
 
@@ -153,11 +166,64 @@ would emit the instruction
 
 assuming that `regnum` has the value 4.
 
+You can use the `do` construct to execute several Clojure expressions.  This is useful, for example, if you need to recursively generate code and then print an instruction, e.g.:
+
+{% highlight clojure %}
+(do
+  (generate-code (node/get-child node 0))
+  (generate-code (node/get-child node 1))
+  (println "\tadd"))
+{% endhighlight %}
+
 ## Examples
 
 Here are some tests programs and example outputs.
 
-[TOOD: these will be here soon.]
+For the following minilang program:
+
+    var a; a := 4 * 5; a;
+
+A possible MiniVM program is
+
+    main:
+        enter 0, 1
+        ldc_i 4
+        ldc_i 5
+        mul
+        dup
+        stlocal 0
+        pop
+        ldlocal 0
+        syscall $println
+        pop
+        ldc_i 0
+        ret
+
+For the following minilang program:
+
+    var a; var b; var c; b := 6; c := 3; a := b*c;
+
+A possible MiniVM program is
+
+    main:
+        enter 0, 3
+        ldc_i 6
+        dup
+        stlocal 1
+        pop
+        ldc_i 3
+        dup
+        stlocal 2
+        pop
+        ldlocal 1
+        ldlocal 2
+        mul
+        dup
+        stlocal 0
+        syscall $println
+        pop
+        ldc_i 0
+        ret
 
 # Submitting
 
