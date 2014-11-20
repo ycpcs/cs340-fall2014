@@ -102,6 +102,43 @@ Now, the stage is set for metaprogramming: what if a class called a method as pa
 
 Let's use metaprogramming to generate getters and setters for fields whose names are specified by a list of symbols.
 
+    #! /usr/bin/ruby
+    
+    class Object
+        def self.gen_getters_and_setters(*names)
+            names.each do |name|
+                fieldname_sym = "@#{ name }".to_sym
+    
+                setter = Proc.new do |value|
+                    self.instance_variable_set(fieldname_sym, value)
+                end
+                self.send(:define_method, "set_#{ name }", setter)
+    
+                getter = Proc.new do
+                    return self.instance_variable_get(fieldname_sym)
+                end
+                self.send(:define_method, "get_#{ name }", getter)
+            end
+        end
+    end
+    
+    class Person
+        gen_getters_and_setters :name, :age
+    
+        def initialize(name, age)
+            @name = name
+            @age = age
+        end
+
+        # Note: getters and setters not defined explicitly!
+    end
+    
+    p = Person::new("Dave", 41)
+    puts "Original age is: #{p.get_age}"
+    
+    p.set_age(42)
+    puts "Happy birthday, your age is now #{p.get_age}"
+
 A few things to note:
 
 -   The asterisk on the \***names** parameter allows it to capture a variable number of arguments
