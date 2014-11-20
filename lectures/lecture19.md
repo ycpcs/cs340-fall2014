@@ -10,8 +10,10 @@ Blocks and Procs
 
 In Ruby, you can create an object that is a handle to a block by creating a **Proc** object:
 
-    add1 = Proc.new {|x| x + 1}
-    puts add1.call(3)               # prints 4
+{% highlight ruby %}
+add1 = Proc.new {|x| x + 1}
+puts add1.call(3)               # prints 4
+{% endhighlight %}
 
 A **Proc** acts as an anonymous function.
 
@@ -30,28 +32,30 @@ Motivation
 
 Most classes will need getter and setter methods:
 
-    class Person
-        def initialize(name, age)
-            @name = name
-            @age = age
-        end
-
-        def getName
-            return @name
-        end
-
-        def setName(name)
-            @name = name
-        end
-
-        def getAge
-            return @age
-        end
-
-        def setAge(age)
-            @age = age
-        end
+{% highlight ruby %}
+class Person
+    def initialize(name, age)
+        @name = name
+        @age = age
     end
+
+    def getName
+        return @name
+    end
+
+    def setName(name)
+        @name = name
+    end
+
+    def getAge
+        return @age
+    end
+
+    def setAge(age)
+        @age = age
+    end
+end
+{% endhighlight %}
 
 Defining getters and setters is tedious: they all look the same! They are also a source of unnecessary bugs: if we accidentally refer to the wrong field within a getter or setter, it won't work as expected.
 
@@ -67,23 +71,25 @@ Recall two unusual characteristics of Ruby:
 
 Example:
 
-    #! /usr/bin/ruby
+{% highlight ruby %}
+#! /usr/bin/ruby
 
-    class Object
-        def self.sayhello
-            puts "Hello!"
-            puts "self.class is #{self.class}"
-            puts "This class is #{self.name}"
-        end
+class Object
+    def self.sayhello
+        puts "Hello!"
+        puts "self.class is #{self.class}"
+        puts "This class is #{self.name}"
     end
+end
 
-    class Person
-        sayhello
-    end
+class Person
+    sayhello
+end
 
-    class Vehicle
-        sayhello
-    end
+class Vehicle
+    sayhello
+end
+{% endhighlight %}
 
 The output of the program is
 
@@ -102,48 +108,50 @@ Now, the stage is set for metaprogramming: what if a class called a method as pa
 
 Let's use metaprogramming to generate getters and setters for fields whose names are specified by a list of symbols.
 
-    #! /usr/bin/ruby
-    
-    class Object
-        def self.gen_getters_and_setters(*names)
-            names.each do |name|
-                fieldname_sym = "@#{ name }".to_sym
-    
-                setter = Proc.new do |value|
-                    self.instance_variable_set(fieldname_sym, value)
-                end
-                self.send(:define_method, "set_#{ name }", setter)
-    
-                getter = Proc.new do
-                    return self.instance_variable_get(fieldname_sym)
-                end
-                self.send(:define_method, "get_#{ name }", getter)
-            end
-        end
-    end
-    
-    class Person
-        gen_getters_and_setters :name, :age
-    
-        def initialize(name, age)
-            @name = name
-            @age = age
-        end
+{% highlight ruby %}
+#! /usr/bin/ruby
 
-        # Note: getters and setters not defined explicitly!
+class Object
+    def self.gen_getters_and_setters(*names)
+        names.each do |name|
+            fieldname_sym = "@#{ name }".to_sym
+
+            setter = Proc.new do |value|
+                self.instance_variable_set(fieldname_sym, value)
+            end
+            self.send(:define_method, "set_#{ name }", setter)
+
+            getter = Proc.new do
+                return self.instance_variable_get(fieldname_sym)
+            end
+            self.send(:define_method, "get_#{ name }", getter)
+        end
     end
-    
-    p = Person::new("Dave", 41)
-    puts "Original age is: #{p.get_age}"
-    
-    p.set_age(42)
-    puts "Happy birthday, your age is now #{p.get_age}"
+end
+
+class Person
+    gen_getters_and_setters :name, :age
+
+    def initialize(name, age)
+        @name = name
+        @age = age
+    end
+
+    # Note: getters and setters not defined explicitly!
+end
+
+p = Person::new("Dave", 41)
+puts "Original age is: #{p.get_age}"
+
+p.set_age(42)
+puts "Happy birthday, your age is now #{p.get_age}"
+{% endhighlight %}
 
 A few things to note:
 
 -   The asterisk on the \***names** parameter allows it to capture a variable number of arguments
 -   The **instance\_variable\_set** and **instance\_variable\_get** methods allow access to a field whose name is specified as a symbol (which we compute by constructing a string equal to the field name and converting the string to a symnol)
--   The **define\_method** method of the **Class** class defines a new instance method. Because it is a private method, we can't call it directly, but instead must use the class object's **send** method to call it indirectly. (I have no idea why this is necessary.)
+-   The **define\_method** method of the **Class** class defines a new instance method. Because it is a private method, we can't call it directly, but instead must use the class object's **send** method to call it indirectly. (This appears to be necessary because **define\_method** is private, and can't be called directly.)
 
 Metaprogramming in real life
 ============================
