@@ -7,6 +7,8 @@ title: "Assignment 8: Code Generation"
 
 **Due**: Tuesday, Dec 9th by 11:59 PM
 
+*Update 11/21*: A fixed version of [CS340\_Assign08.zip](CS340_Assign08.zip) has been uploaded.  The specific files that changed are `MiniVM.rb`, `src/minilang/scope.clj`, and `src/minilang/analyzer.clj`.
+
 # Getting Started
 
 Download [CS340\_Assign08.zip](CS340_Assign08.zip).
