@@ -19,6 +19,7 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 
 ## News
 
+* **Nov 21** - [Assignment 8](assign/assign08.html) has been updated with grading criteria, and a description of how to implement control flow (**if** and **while** statements) for extra credit.
 * **Nov 21** - The skeleton file for [Assignment 8](assign/assign08.html) has been updated to fix some bugs.  Please update if you have downloaded a previous version.  You can just copy your `codegen.clj` over to the new version.
 * **Nov 19** - [Assignment 8](assign/assign08.html) is due Tuesday, Dec 9th by 11:59 PM.
 * **Nov 18** - A solution to the [Clojure quiz](assign/clojure-quiz.html) has been posted on the [Examples](examples/index.html) page.

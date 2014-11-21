@@ -141,10 +141,124 @@ Another interesting issue: you will notice that in the steps mentioned above for
   ;(println "; Inverting comparison " (:symbol aast))
   (if (not (contains? inverted-comparison-ops (:symbol aast)))
     (throw (RuntimeException. (str (:symbol aast) " expression is not a condition?")))
-    ;(let [x (get inverted-comparison-ops (:symbol aast))]
-    ;  (println "; x is " x)
-    ;  x)))
     (node/make-node-with-props (get inverted-comparison-ops (:symbol aast)) (:value aast) (:props aast))))
 {% endhighlight %}
 
 So, the idea is that you should generate code for the *inverted* condition rather than the actual condition, and pass it a label that the code should jump to if the inverted condition is true (meaning than the original condition was false).
+
+# Testing, examples
+
+Here are some example programs you can try.  Note that Clojure allows string constants to span multiple lines, e.g.:
+
+{% highlight clojure %}
+(def testprog
+"var a;
+a := 42;
+if (a > 10) {
+    a := a * 2;
+}
+a;")
+{% endhighlight %}
+
+Multiline strings will make your test programs a bit easier to write and read.
+
+Example program:
+
+    var a;
+    var b;
+    a := 4;
+    b := 6;
+    if (a < 10) {
+        b := 7;
+    }
+    b;
+
+This program should generate code similar to the following:
+
+    main:
+        enter 0, 2
+        ldc_i 4
+        dup
+        stlocal 0
+        pop
+        ldc_i 6
+        dup
+        stlocal 1
+        pop
+        ldlocal 0
+        ldc_i 10
+        cmp
+        jgte G__1914
+        ldc_i 7
+        dup
+        stlocal 1
+        pop
+    G__1914:
+        ldlocal 1
+        syscall $println
+        pop
+        ldc_i 0
+        ret
+
+Another example program:
+
+    var max;
+    var count;
+    var sum;
+    max := 100;
+    count := 1;
+    sum := 0;
+    while (count <= max) {
+        var t;
+        t := sum + count;
+        sum := t;
+        count := count + 1;
+    }
+    sum;
+
+This program should generate code similar to the following:
+
+    main:
+        enter 0, 4
+        ldc_i 100
+        dup
+        stlocal 0
+        pop
+        ldc_i 1
+        dup
+        stlocal 1
+        pop
+        ldc_i 0
+        dup
+        stlocal 2
+        pop
+    G__1941:
+        ldlocal 1
+        ldlocal 0
+        cmp
+        jgt G__1942
+        ldlocal 2
+        ldlocal 1
+        add
+        dup
+        stlocal 3
+        pop
+        ldlocal 3
+        dup
+        stlocal 2
+        pop
+        ldlocal 1
+        ldc_i 1
+        add
+        dup
+        stlocal 1
+        pop
+        jmp G__1941
+    G__1942:
+        ldlocal 2
+        syscall $println
+        pop
+        ldc_i 0
+        ret
+
+Note that this program computes the sum of the integers from 1 to 100: is that cool, or what?

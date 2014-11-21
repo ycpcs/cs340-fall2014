@@ -3,8 +3,6 @@ layout: default
 title: "Assignment 8: Code Generation"
 ---
 
-*Note: this is mostly complete, but there will be updates in the near future*
-
 **Due**: Tuesday, Dec 9th by 11:59 PM
 
 *Update 11/21*: A fixed version of [CS340\_Assign08.zip](CS340_Assign08.zip) has been uploaded.  The specific files that changed are `MiniVM.rb`, `src/minilang/scope.clj`, and `src/minilang/analyzer.clj`.
@@ -237,13 +235,20 @@ main:
 
 # Grading
 
-Coming soon.
+* Evaluation of simple expressions with just constants: 20%
+* Evaluation of complex expressions with just constants: 20%
+* Assignments of constants to variables: 10%
+* Evaluating variables in expressions: 10%
+* Evaluation of expressions with constants and variables: 20%
+* Printing the value of the last expression using `syscall $println`: 20%
 
 ## Insane extra credit
 
-For extra credit, implement code generation for `:if_statement` and `:while_statement` AST nodes.
+For extra credit (up to 50 points), implement code generation for `:if_statement` and `:while_statement` AST nodes.
 
 See [Implementing Control Flow](assign08controlflow.html) for more information.
+
+This is actually not particularly difficult, and allows you to compile and run rather sophisticated programs.  And, imagine how cool it will be to mention that you implemented a compiler for a Turing-complete language with full support for variables and arbitrary control flow targeting a stack-based virtual machine in a functional language at the next party you go to.
 
 # Submitting
 
