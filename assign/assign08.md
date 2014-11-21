@@ -241,7 +241,9 @@ Coming soon.
 
 ## Insane extra credit
 
-For extra credit, implement code generation for `:if_statement` and `:while_statement` AST nodes.  (More information coming soon.)
+For extra credit, implement code generation for `:if_statement` and `:while_statement` AST nodes.
+
+See [Implementing Control Flow](assign08controlflow.html) for more information.
 
 # Submitting
 
