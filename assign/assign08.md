@@ -237,10 +237,10 @@ main:
 
 * Evaluation of simple expressions with just constants: 20%
 * Evaluation of complex expressions with just constants: 20%
-* Assignments of constants to variables: 10%
-* Evaluating variables in expressions: 10%
+* Assignments of constants to variables: 15%
+* Evaluating variables in expressions: 15%
 * Evaluation of expressions with constants and variables: 20%
-* Printing the value of the last expression using `syscall $println`: 20%
+* Printing the value of the last expression using `syscall $println`: 10%
 
 ## Insane extra credit
 
