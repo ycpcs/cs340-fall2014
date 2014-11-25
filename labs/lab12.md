@@ -15,7 +15,7 @@ You can test your functions by running the command `lein test` in a terminal win
 
 You can also start a Clojure REPL (in Eclipse) by right-clicking in `core.clj` and choosing **Clojure&rarr;Load file in REPL**.  This is very useful for testing your functions interactively.
 
-<div class="callout"><b>Important</b>: make sure you follow the requirements for each function.  For example, <b>my-flatten</b> must be recursive, and <b>conj-all</b> must be tail recursive.  Trivial solutions (e.g., `(defn my-flatten [a-seq] (flatten a-seq))` are not acceptable.</div>
+<div class="callout"><b>Important</b>: make sure you follow the requirements for each function.  For example, <b>my-flatten</b> must be recursive, and <b>conj-all</b> must be tail recursive.  Trivial solutions (e.g., <code>(defn my-flatten [a-seq] (flatten a-seq))</code> are not acceptable.</div>
 
 ## Resources you may use
 
