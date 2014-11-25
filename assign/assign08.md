@@ -40,7 +40,7 @@ This assignment introduces *augmented* ASTs.  An augmented AST has the same form
 
 The `analyzer.clj` module is provided to transform a plain AST into an augmented AST: the `analyzer/augment-ast` function does the transformation.  The analyzer adds three kinds of properties to the AST:
 
-* `:statement_list` nodes will have an `:nlocals` property, specifying how many local variables are defined immediately within the statement list
+* `:statement_list` nodes will have an `:nlocals` property, specifying how many local variables are used within the statement list (and any nested statement lists in **if** or **while** statements)
 * `:identifier` nodes will have a `:regnum` property, specifying an integer which uniquely identifies the variable named by the identifier
 * the last `:expression_statement`, `:var_decl_statement`, `:if_statement`, or `:while_statement` node in the top-level statement list will have a `:last` property whose value is `true`
 
