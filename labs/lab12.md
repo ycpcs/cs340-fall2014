@@ -13,7 +13,9 @@ Complete the **make-pair**, **double-apply**, **double-applicator**, **my-flatte
 
 You can test your functions by running the command `lein test` in a terminal window from the root of the project.
 
-**Important**: make sure you follow the requirements for each function.  For example, **my-flatten** must be recursive, and **conj-all** must be tail recursive.
+You can also start a Clojure REPL (in Eclipse) by right-clicking in `core.clj` and choosing **Clojure&rarr;Load file in REPL**.  This is very useful for testing your functions interactively.
+
+<div class="callout"><b>Important</b>: make sure you follow the requirements for each function.  For example, <b>my-flatten</b> must be recursive, and <b>conj-all</b> must be tail recursive.  Trivial solutions (e.g., `(defn my-flatten [a-seq] (flatten a-seq))` are not acceptable.</div>
 
 ## Resources you may use
 
