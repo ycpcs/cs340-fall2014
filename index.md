@@ -19,6 +19,7 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 
 ## News
 
+* **Dec 2** - Solutions to [Lab 13](labs/lab13.html) are available.
 * **Dec 2** - Solutions to [Lab 12](labs/lab12.html) are available.
 * **Nov 25** - Exam 2 will take place in class on Thursday, Dec 4th.  It will be entirely programming-based, and will focus mainly on Clojure, although it is possible that there could be a Prolog, Erlang, and/or Ruby question.  The exam will be open book and open notes, and the use of the following websites will be permitted: the [course website](http://ycpcs.github.io/cs340-fall2014), the [Clojure MOOC](http://mooc.cs.helsinki.fi/clojure) website, the [clojure.org](http://clojure.org/) website, and the [clojuredocs.org](http://clojuredocs.org/) website.
 * **Nov 21** - [Assignment 8](assign/assign08.html) has been updated with grading criteria, and a description of how to implement control flow (**if** and **while** statements) for extra credit.
