@@ -22,3 +22,7 @@ You can also start a Clojure REPL (in Eclipse) by right-clicking in `core.clj` a
 You may use your textbook, the [course website](http://ycpcs.github.io/cs340-fall2014), the [Clojure MOOC](http://mooc.cs.helsinki.fi/clojure) website, the [clojure.org](http://clojure.org/) website, and the [clojuredocs.org](http://clojuredocs.org/) website.
 
 Note that this lab is not graded, but it is intended to be a preview of Exam 2, so you should try to complete it using only the resources listed above (which you will also have access to for Exam 2.)
+
+# Solutions
+
+Here are my solutions: [lab12.clj](lab12.clj).
