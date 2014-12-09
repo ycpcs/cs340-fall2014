@@ -19,6 +19,7 @@ This is the website for CS 340 (Programming Language Design), Fall 2014 at York 
 
 ## News
 
+* **Dec 9** - The final exam will take place at the following times: Section 101 on Saturday, Dec 13th at 8:00 AM; Section 102 on Thursday, Dec 11th at 10:15 AM.
 * **Dec 2** - Solutions to [Lab 13](labs/lab13.html) are available.
 * **Dec 2** - Solutions to [Lab 12](labs/lab12.html) are available.
 * **Nov 25** - Exam 2 will take place in class on Thursday, Dec 4th.  It will be entirely programming-based, and will focus mainly on Clojure, although it is possible that there could be a Prolog, Erlang, and/or Ruby question.  The exam will be open book and open notes, and the use of the following websites will be permitted: the [course website](http://ycpcs.github.io/cs340-fall2014), the [Clojure MOOC](http://mooc.cs.helsinki.fi/clojure) website, the [clojure.org](http://clojure.org/) website, and the [clojuredocs.org](http://clojuredocs.org/) website.
